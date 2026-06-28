@@ -1,0 +1,81 @@
+[build-system]
+requires = [“setuptools>=69”, “wheel”]
+build-backend = “setuptools.build_meta”
+
+[project]
+name = “litminion”
+version = “0.1.0”
+description = “A Python framework for biomedical literature mining and natural language processing.”
+readme = “README.md”
+requires-python = “>=3.11”
+license = { text = “MIT” }
+
+authors = [
+{ name = “Rebecca Sessa” }
+]
+
+keywords = [
+“nlp”,
+“biomedical”,
+“pubmed”,
+“text-mining”,
+“machine-learning”,
+“bioinformatics”,
+“literature-mining”,
+]
+
+classifiers = [
+“Programming Language :: Python :: 3”,
+“Programming Language :: Python :: 3.11”,
+“License :: OSI Approved :: MIT License”,
+“Operating System :: OS Independent”,
+“Intended Audience :: Science/Research”,
+“Topic :: Scientific/Engineering :: Bio-Informatics”,
+]
+
+dependencies = [
+“biopython>=1.85”,
+“pandas>=2.2”,
+“spacy>=3.8”,
+]
+
+[project.optional-dependencies]
+dev = [
+“pytest>=8.0”,
+“black>=24.0”,
+“ruff>=0.5”,
+]
+
+ml = [
+“scikit-learn>=1.5”,
+“bertopic>=0.17”,
+“sentence-transformers>=5.0”,
+]
+
+biomedical = [
+“scispacy”
+]
+
+[tool.setuptools]
+package-dir = {”” = “src”}
+
+[tool.setuptools.packages.find]
+where = [“src”]
+
+[tool.pytest.ini_options]
+testpaths = [“tests”]
+
+[tool.black]
+line-length = 88
+target-version = [“py311”]
+
+[tool.ruff]
+line-length = 88
+target-version = “py311”
+
+[tool.ruff.lint]
+select = [
+“E”,
+“F”,
+“I”,
+]

@@ -1,43 +1,52 @@
-# macOS
-.DS_Store
-build/
+# Operating System
+Thumbs.db
 
 # Python
 __pycache__/
 *.py[cod]
 *.pyo
-.pytest_cache
+*.pyd
+*.so
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
 
 # Jupyter
 .ipynb_checkpoints/
 
-# Conda
-.env
-.venv
+# Virtual environments
+.venv/
+.env/
 .envrc
 
-# VS Code
+# IDEs
 .vscode/
+.idea/
 
-# Local data
-tests/test_api.py
-tests/test_parser.py
-src/litminion/config.py
-src/litminion/keywords.py
-src/litminion/ner.py
-src/litminion/preprocessing.py
-src/litminion/topics.py
-src/litminion/utils.py
-docs
-outputs
+# Project outputs
+outputs/
+docs/_build/
 
 # Downloaded datasets
-data/raw/*
-data/processed/*
+storage/raw/*
+storage/processed/*
 
-# Keep folder structure
-!data/raw/.gitkeep
-!data/processed/.gitkeep
+# Keep directory structure
+!storage/raw/.gitkeep
+!storage/processed/.gitkeep
 
-# Egg
-src/litminion.egg-info/
+# Logs
+*.log
+
+# Tool caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/

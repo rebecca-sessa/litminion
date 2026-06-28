@@ -11,10 +11,11 @@ and parsing pipeline.
 """
 
 from __future__ import annotations
+
 import pandas as pd
 
-from litminion.api import fetch_pubmed, search_pubmed
-from litminion.parser import parse_article
+from litminion.data.api import fetch_pubmed, search_pubmed
+from litminion.data.parser import parse_article
 
 
 def download_pubmed(
