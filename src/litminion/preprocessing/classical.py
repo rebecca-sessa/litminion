@@ -10,8 +10,10 @@ topic modeling, and keyword extraction.
 
 from __future__ import annotations
 import re
+import string
 
 from typing import Optional
+import unicodedata
 
 import spacy
 from spacy.language import Language
@@ -86,8 +88,6 @@ class ClassicalPreprocessor(BasePreprocessor):
         if self.lowercase:
             text = text.lower()
 
-        # At this point _nlp cannot be None because _load_model()
-        # has initialized it.
         assert self._nlp is not None
 
         doc = self._nlp(text)
@@ -110,6 +110,8 @@ class ClassicalPreprocessor(BasePreprocessor):
         str
             Cleaned text.
         """
+
+        text = unicodedata.normalize("NFKC", text)
 
         text = re.sub(r"\s+", " ", text)
 
@@ -168,9 +170,19 @@ class ClassicalPreprocessor(BasePreprocessor):
             if self.remove_stopwords and token.is_stop:
                 continue
 
-            if self.lemmatize:
-                tokens.append(token.lemma_)
-            else:
-                tokens.append(token.text)
+            if all(char in string.punctuation for char in token.text):
+                continue
+
+            if token.like_num:
+                continue
+
+            token_text = token.lemma_ if self.lemmatize else token.text
+
+            token_text = token_text.strip()
+
+            if not token_text:
+                continue
+
+            tokens.append(token_text)
 
         return tokens

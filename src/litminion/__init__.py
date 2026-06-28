@@ -17,6 +17,11 @@ from litminion.preprocessing import (
     ClassicalPreprocessor,
 )
 
+from litminion.features import (
+    WordFrequencyAnalyzer,
+    TfidfExtractor,
+)
+
 __version__ = "0.1.0"
 
 __all__ = [
@@ -26,4 +31,6 @@ __all__ = [
     "download_pubmed",
     "BasePreprocessor",
     "ClassicalPreprocessor",
+    "WordFrequencyAnalyzer",
+    "TfidfExtractor"
 ]

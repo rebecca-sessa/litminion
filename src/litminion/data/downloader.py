@@ -21,6 +21,7 @@ from litminion.data.parser import parse_article
 def download_pubmed(
         query: str,
         max_results: int = 100,
+        abstracts_only: bool = True
 ) -> pd.DataFrame:
     """
 
@@ -37,6 +38,10 @@ def download_pubmed(
     max_results : int, default=100
 
         Maximum number of articles to retrieve.
+
+    abstracts_only : bool, default=True
+
+        If True, discard records without an abstract.
 
     Returns
 
@@ -60,4 +65,12 @@ def download_pubmed(
         for article in articles
     ]
 
-    return pd.DataFrame(parsed_articles)
+    df = pd.DataFrame(parsed_articles)
+
+    if abstracts_only:
+        df = (
+            df[df["Abstract"].str.strip() != ""]
+            .reset_index(drop=True)
+        )
+
+    return df
