@@ -1,99 +1,86 @@
 # LitMinion
 
-> A Python framework for biomedical literature mining and natural language processing.
+```html
+<p align="center">
+  <img src="assets/logo.svg" width="120" alt="LitMinion logo">
+</p>
 
-LitMinion is an open-source Python framework designed to retrieve, preprocess, analyze, and explore biomedical literature from PubMed. The project combines modern software engineering practices with natural language processing (NLP) techniques to support scientific knowledge discovery in academia and industry.
+<p align="center">
+  <img src="assets/cover.png" alt="LitMinion cover">
+</p>
+
+<p align="center">
+<b>A modular Python framework for biomedical literature mining and natural language processing.</b>
+</p>
+```
 
 ---
 
 ## Overview
 
-Biomedical literature is growing at an unprecedented rate, making manual exploration increasingly difficult. LitMinion aims to provide a modular toolkit for:
+LitMinion is an open-source Python framework for building reproducible biomedical literature mining workflows.
 
-- Retrieving publications from PubMed
-- Preprocessing biomedical text
-- Extracting keywords and entities
-- Discovering topics and trends
-- Building reproducible literature mining workflows
+Starting from PubMed publications, it provides a modular pipeline to retrieve scientific articles, preprocess biomedical text, extract knowledge, and support downstream analyses such as keyword extraction, topic modeling, named entity recognition, and literature exploration.
 
-The framework is designed to be extensible, allowing multiple preprocessing strategies and machine learning pipelines to coexist under a common interface.
+The project emphasizes:
+
+- modular software architecture
+- reproducible analysis pipelines
+- extensibility through interchangeable NLP backends
+- clean and well-documented APIs
+
+Whether you are performing exploratory literature reviews, building biomedical NLP workflows, or developing research tools, LitMinion provides reusable building blocks instead of monolithic scripts.
 
 ---
 
-## Current Features
+## Features
 
-- PubMed search through the NCBI Entrez API
-- Retrieval of article metadata and abstracts
-- Parsing PubMed XML into pandas DataFrames
-- Object-oriented preprocessing architecture
+### Available
+
+- PubMed search via the NCBI Entrez API
+- Metadata and abstract retrieval
+- XML parsing into pandas DataFrames
 - Classical NLP preprocessing with spaCy
-- Lazy loading of NLP models
-- Type hints and comprehensive docstrings
+- Lazy loading of language models
+- Object-oriented preprocessing framework
+- Type hints and comprehensive documentation
 
----
+### Planned
 
-## Planned Features
+**Data Management**
 
-### Data management
-
-- Corpus class
+- Corpus abstraction
 - Dataset serialization
-- Metadata management
+- Metadata handling
 
-### NLP
+**Natural Language Processing**
 
-- Biomedical preprocessing (scispaCy)
-- Transformer preprocessing
+- scispaCy preprocessing
+- Transformer-based preprocessing
 - Keyword extraction
 - TF-IDF
 - YAKE
 - KeyBERT
 
-### Machine Learning
-
-- Topic modeling (BERTopic)
-- Document embeddings
-- Abstract classification
-- Trend analysis
-
-### Biomedical NLP
+**Biomedical NLP**
 
 - Named Entity Recognition
-- Gene and protein recognition
-- Drug extraction
-- Disease extraction
+- Drug recognition
+- Disease recognition
+- Gene and protein extraction
 
-### Visualization
+**Machine Learning**
 
-- Topic visualizations
+- BERTopic
+- Document embeddings
+- Abstract classification
+- Trend detection
+
+**Visualization**
+
 - Publication trends
+- Topic visualization
 - Interactive dashboards
-
----
-
-## Project Structure
-
-```text
-litminion/
-│
-├── src/
-│   └── litminion/
-│       ├── data/
-│       ├── preprocessing/
-│       ├── config.py
-│       └── __init__.py
-│
-├── tests/
-├── notebooks/
-├── storage/
-│   ├── raw/
-│   └── processed/
-│
-├── outputs/
-├── README.md
-├── pyproject.toml
-└── requirements.txt
-```
 
 ---
 
@@ -102,11 +89,11 @@ litminion/
 Clone the repository
 
 ```bash
-git clone https://github.com/<your-username>/litminion.git
+git clone https://github.com/<username>/litminion.git
 cd litminion
 ```
 
-Create a virtual environment (recommended)
+Create a virtual environment
 
 ```bash
 conda create -n litminion python=3.11
@@ -150,23 +137,51 @@ print(processed)
 
 ---
 
-## Development principles
+## Project Structure
+
+```text
+litminion/
+│
+├── assets/
+├── src/
+│   └── litminion/
+│       ├── data/
+│       ├── preprocessing/
+│       ├── config.py
+│       └── __init__.py
+│
+├── tests/
+├── notebooks/
+├── storage/
+├── outputs/
+├── README.md
+├── pyproject.toml
+└── requirements.txt
+```
+
+---
+
+## Design Principles
+
+LitMinion is built around a few core engineering principles:
 
 - Modular architecture
 - Object-oriented design
-- Type annotations
+- Extensible preprocessing pipelines
+- Clear public APIs
 - Comprehensive documentation
+- Type annotations
 - Unit testing
-- Reproducible analyses
+- Reproducible workflows
 
 ---
 
 ## Roadmap
 
-- [x] PubMed API
+- [x] PubMed API integration
 - [x] XML parser
-- [x] Downloader
-- [x] Classical preprocessing
+- [x] Literature downloader
+- [x] Classical preprocessing pipeline
 - [ ] Corpus abstraction
 - [ ] Keyword extraction
 - [ ] Biomedical preprocessing
