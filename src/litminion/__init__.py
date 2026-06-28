@@ -25,17 +25,35 @@ from litminion.features import (
 
 from litminion.corpus import Corpus
 
+from litminion.keywords import (
+    BaseKeywordExtractor,
+    TfidfKeywordExtractor,
+)
+
 __version__ = "0.2.0"
 
 __all__ = [
+
+    # configuration
     "set_email",
-    "search_pubmed",
-    "fetch_pubmed",
+
+    # data
     "download_pubmed",
+
+    # corpus
+    "Corpus",
+
+    # preprocessing
     "BasePreprocessor",
     "ClassicalPreprocessor",
+
+    # feature extraction
     "WordFrequencyExtractor",
     "TfidfExtractor",
-    "NGramExtractor",
-    "Corpus",
+    "NgramExtractor",
+
+    # keyword extraction
+    "BaseKeywordExtractor",
+    "TfidfKeywordExtractor",
+
 ]

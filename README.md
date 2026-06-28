@@ -137,6 +137,17 @@ tfidf.fit(documents)
 print(tfidf.get_top_terms(document=0))
 
 tfidf.plot(document=0)
+
+# Extract Keywords
+keywords = lm.TfidfKeywordExtractor()
+
+keywords.fit(
+
+    corpus.get_documents()
+
+)
+
+keywords.get_keywords(15)
 ```
 
 ---
