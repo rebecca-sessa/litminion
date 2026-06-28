@@ -1,6 +1,5 @@
 # LitMinion
 
-```html
 <p align="center">
   <img src="assets/logo.svg" width="120" alt="LitMinion logo">
 </p>
@@ -12,7 +11,6 @@
 <p align="center">
 <b>A modular Python framework for biomedical literature mining and natural language processing.</b>
 </p>
-```
 
 ---
 
