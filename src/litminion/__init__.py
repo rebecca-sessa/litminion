@@ -23,7 +23,9 @@ from litminion.features import (
     NGramExtractor,
 )
 
-__version__ = "0.1.0"
+from litminion.corpus import Corpus
+
+__version__ = "0.2.0"
 
 __all__ = [
     "set_email",
@@ -35,4 +37,5 @@ __all__ = [
     "WordFrequencyExtractor",
     "TfidfExtractor",
     "NGramExtractor",
+    "Corpus",
 ]
