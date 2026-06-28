@@ -24,7 +24,7 @@ def test_download_pubmed_returns_dataframe():
     with the expected columns.
     """
 
-    lm.set_email("your_email@example.com")
+    lm.set_email("rebecca.sessa@studio.unibo.it")
 
     df = lm.download_pubmed(
         query="JAK inhibitor",

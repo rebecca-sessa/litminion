@@ -259,9 +259,9 @@ class TfidfExtractor:
             columns=["Term", "Score"],
         )
 
-    def plot_top_terms(
+    def plot(
         self,
-        document: int,
+        document: int = 0,
         n: int = 20,
         ascending: bool = True,
     ) -> Axes:

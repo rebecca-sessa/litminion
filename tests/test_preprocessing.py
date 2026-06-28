@@ -1,28 +1,30 @@
-"""
-Tests for the preprocessing module.
-"""
-
-from litminion import ClassicalPreprocessor
-
-
-def test_preprocessor_instantiation():
-    preprocessor = ClassicalPreprocessor()
-    assert preprocessor is not None
+import litminion as lm
 
 
 def test_transform_returns_string():
-    preprocessor = ClassicalPreprocessor()
 
-    result = preprocessor.transform(
-        "Patients were treated with baricitinib."
-    )
+    preprocessor = lm.ClassicalPreprocessor()
 
-    assert isinstance(result, str)
+    text = "Patients received JAK inhibitors."
+
+    processed = preprocessor.transform(text)
+
+    assert isinstance(processed, str)
 
 
-def test_cleaning():
-    preprocessor = ClassicalPreprocessor()
+def test_transform_corpus(documents):
 
-    text = "  Hello\n\nworld   "
+    preprocessor = lm.ClassicalPreprocessor()
 
-    assert preprocessor._clean_text(text) == "Hello world"
+    processed = preprocessor.transform_corpus(documents)
+
+    assert isinstance(processed, list)
+
+    assert len(processed) == len(documents)
+
+
+def test_empty_document():
+
+    preprocessor = lm.ClassicalPreprocessor()
+
+    assert preprocessor.transform("") == ""

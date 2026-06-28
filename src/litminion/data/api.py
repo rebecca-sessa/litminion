@@ -10,7 +10,7 @@ It does not parse articles or build pandas DataFrames.
 
 """
 
-from typing import List
+from collections.abc import Sequence
 from Bio import Entrez
 
 
@@ -39,7 +39,7 @@ def set_email(email: str) -> None:
     Entrez.email = email
 
 
-def search_pubmed(query: str, max_results: int = 100) -> List[str]:
+def search_pubmed(query: str, max_results: int = 100) -> Sequence[str]:
     """
 
     Search PubMed and return a list of PubMed IDs (PMIDs).
@@ -60,7 +60,7 @@ def search_pubmed(query: str, max_results: int = 100) -> List[str]:
 
     -------
 
-    list[str]
+    Sequence[str]
 
         List of PubMed IDs.
 
@@ -83,7 +83,7 @@ def search_pubmed(query: str, max_results: int = 100) -> List[str]:
     return results["IdList"]
 
 
-def fetch_pubmed(pmids: List[str]) -> List:
+def fetch_pubmed(pmids: Sequence[str]) -> Sequence:
     """
 
     Retrieve PubMed articles from a list of PMIDs.
