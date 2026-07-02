@@ -5,6 +5,7 @@ TF-IDF feature extraction for biomedical corpora.
 """
 
 from __future__ import annotations
+from litminion.keywords import BaseKeywordExtractor
 from sklearn.utils.validation import check_is_fitted
 from collections.abc import Sequence
 
@@ -16,7 +17,7 @@ from scipy.sparse import csr_matrix
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 
-class TfidfExtractor:
+class TfidfExtractor():
     """
     Extract TF-IDF features from a corpus of documents.
 

@@ -1,5 +1,5 @@
 """
-Text preprocessing utilities for biomedical NLP.
+Text preprocessing.
 """
 
 from litminion.preprocessing.base import BasePreprocessor

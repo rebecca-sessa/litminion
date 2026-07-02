@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "litminion"
-version = "0.2.0"
-description = "A Python framework for biomedical literature mining and natural language processing."
+version = "0.5.0"
+description = "A modular Python framework for biomedical literature mining and natural language processing."
 readme = "README.md"
 requires-python = ">=3.11"
 license = "MIT"
@@ -15,56 +15,57 @@ authors = [
 ]
 
 keywords = [
-    "biomedical",
-    "bioinformatics",
-    "literature-mining",
-    "machine-learning",
-    "medical-ai",
-    "natural-language-processing",
     "nlp",
+    "biomedical",
     "pubmed",
-    "scientific-literature",
     "text-mining",
+    "literature-mining",
+    "bioinformatics",
+    "machine-learning",
+    "natural-language-processing",
+    "sentence-transformers",
+    "keybert",
+    "bertopic",
+    "topic-modeling",
 ]
 
 classifiers = [
-    "Development Status :: 3 - Alpha",
-    "Intended Audience :: Science/Research",
-    "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Science/Research",
     "Topic :: Scientific/Engineering :: Bio-Informatics",
-    "Topic :: Scientific/Engineering :: Medical Science Apps.",
 ]
 
 dependencies = [
     "biopython>=1.85",
-    "matplotlib>=3.9",
     "pandas>=2.2",
+    "numpy>=2.0",
     "scikit-learn>=1.5",
     "spacy>=3.8",
+    "matplotlib>=3.9",
+    "plotly>=6.0",
+    "sentence-transformers>=5.0",
+    "keybert>=0.9",
+    "bertopic>=0.17",
+    "umap-learn>=0.5",
+    "hdbscan>=0.8",
 ]
 
 [project.optional-dependencies]
 
 dev = [
-    "black>=24.0",
     "pytest>=8.0",
+    "black>=24.0",
     "ruff>=0.5",
 ]
 
 biomedical = [
-    "scispacy>=0.5",
-]
-
-advanced = [
-    "bertopic>=0.17",
-    "sentence-transformers>=5.0",
+    "scispacy",
 ]
 
 [tool.setuptools]
-package-dir = { "" = "src" }
+package-dir = {"" = "src"}
 
 [tool.setuptools.packages.find]
 where = ["src"]

@@ -1,3 +1,9 @@
-from .corpus import Corpus
+"""
+Corpus abstraction.
+"""
 
-__all__ = ["Corpus"]
+from litminion.corpus.corpus import Corpus
+
+__all__ = [
+    "Corpus",
+]

@@ -42,27 +42,31 @@ class BaseKeywordExtractor(ABC):
     @abstractmethod
     def get_keywords(
         self,
+        document: int = 0,
         n: int = 20,
     ) -> list[tuple[str, float]]:
         """
-        Return the highest-scoring keywords.
+Return the highest-scoring keywords for a document.
 
-        Parameters
-        ----------
-        n : int, default=20
-            Number of keywords to return.
+Parameters
+----------
+document : int, default=0
+    Document index.
 
-        Returns
-        -------
-        list[tuple[str, float]]
-            List of (keyword, score) pairs sorted by
-            decreasing importance.
-        """
+n : int, default=20
+    Number of keywords to return.
+
+Returns
+-------
+list[tuple[str, float]]
+    List of (keyword, score) pairs sorted by decreasing score.
+"""
         ...
 
     def fit_extract(
         self,
         documents: Sequence[str],
+        document: int = 0,
         n: int = 20,
     ) -> list[tuple[str, float]]:
         """
@@ -79,9 +83,12 @@ class BaseKeywordExtractor(ABC):
         Returns
         -------
         list[tuple[str, float]]
-            Top keywords extracted from the corpus.
+            Top keywords extracted from the selected document.
         """
 
         self.fit(documents)
 
-        return self.get_keywords(n)
+        return self.get_keywords(
+            document=document,
+            n=n
+        )

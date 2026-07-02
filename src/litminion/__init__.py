@@ -1,9 +1,11 @@
 """
-LitMinion
+litminion
 
-A Python framework for biomedical literature mining and natural
-language processing.
+A modular Python framework for biomedical literature mining and
+natural language processing.
 """
+
+from litminion.corpus import Corpus
 
 from litminion.data import (
     set_email,
@@ -19,25 +21,30 @@ from litminion.preprocessing import (
 
 from litminion.features import (
     WordFrequencyExtractor,
-    TfidfExtractor,
     NGramExtractor,
+    TfidfExtractor,
 )
-
-from litminion.corpus import Corpus
 
 from litminion.keywords import (
     BaseKeywordExtractor,
-    TfidfKeywordExtractor,
+    KeyBERTKeywordExtractor,
 )
 
-__version__ = "0.2.0"
+from litminion.embeddings import (
+    BaseEmbeddingExtractor,
+    SentenceTransformerExtractor,
+)
+
+from litminion.topic_modeling import (
+    BaseTopicModel,
+    BERTopicModel,
+)
 
 __all__ = [
-
-    # configuration
-    "set_email",
-
     # data
+    "set_email",
+    "search_pubmed",
+    "fetch_pubmed",
     "download_pubmed",
 
     # corpus
@@ -47,13 +54,20 @@ __all__ = [
     "BasePreprocessor",
     "ClassicalPreprocessor",
 
-    # feature extraction
+    # features
     "WordFrequencyExtractor",
+    "NGramExtractor",
     "TfidfExtractor",
-    "NgramExtractor",
 
-    # keyword extraction
+    # keywords
     "BaseKeywordExtractor",
-    "TfidfKeywordExtractor",
+    "KeyBERTKeywordExtractor",
 
+    # embeddings
+    "BaseEmbeddingExtractor",
+    "SentenceTransformerExtractor",
+
+    # topic models
+    "BaseTopicModel",
+    "BERTopicModel",
 ]
